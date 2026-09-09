@@ -6,7 +6,7 @@ create table if not exists public.waitlist (
   created_at timestamptz not null default now(),
   email text not null,
   phone text,
-  interest text not null check (interest in ('one_time', 'subscription', 'either')),
+  interest text not null check (interest in ('bouquet', 'subscription', 'either')),
   utm_source text,
   utm_medium text
 );

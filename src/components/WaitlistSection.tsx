@@ -8,6 +8,14 @@ import type { Interest } from "@/lib/types";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
+// The waitlist table's check constraint only allows these short values —
+// map the internal option key to the value actually stored in Supabase.
+const INTEREST_DB_VALUES: Record<Interest, string> = {
+  one_time: "bouquet",
+  subscription: "subscription",
+  either: "either",
+};
+
 type Status = "idle" | "submitting" | "success" | "error";
 
 export function WaitlistSection() {
@@ -61,7 +69,7 @@ export function WaitlistSection() {
     const { error } = await supabase.from("waitlist").insert({
       email,
       phone: phone || null,
-      interest,
+      interest: INTEREST_DB_VALUES[interest],
       utm_source,
       utm_medium,
     });
