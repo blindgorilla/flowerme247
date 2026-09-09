@@ -1,9 +1,13 @@
 "use client";
 
+import Image from "next/image";
 import { useLocale } from "@/lib/locale-context";
-import { BouquetIcon } from "./BouquetIcon";
 
-const accents = ["text-burnt", "text-olive", "text-charcoal"];
+const images = [
+  "/images/bouquets/happy-day.jpg",
+  "/images/bouquets/mediterranean.jpg",
+  "/images/bouquets/signature.jpg",
+];
 
 export function BouquetsSection() {
   const { t } = useLocale();
@@ -22,11 +26,21 @@ export function BouquetsSection() {
         {t.bouquets.items.map((item, i) => (
           <div
             key={item.name}
-            className="flex flex-col items-center rounded-2xl border border-charcoal/5 bg-cream-dark/50 px-6 py-8 text-center shadow-sm"
+            className="flex flex-col overflow-hidden rounded-2xl border border-charcoal/5 bg-cream-dark/50 shadow-sm"
           >
-            <BouquetIcon className={`h-14 w-14 ${accents[i % accents.length]}`} />
-            <h3 className="mt-4 font-display text-xl text-charcoal">{item.name}</h3>
-            <p className="mt-2 text-sm text-charcoal/70">{item.description}</p>
+            <div className="relative aspect-[4/5] w-full">
+              <Image
+                src={images[i]}
+                alt={item.name}
+                fill
+                sizes="(min-width: 640px) 33vw, 100vw"
+                className="object-cover"
+              />
+            </div>
+            <div className="px-6 py-6 text-center">
+              <h3 className="font-display text-xl text-charcoal">{item.name}</h3>
+              <p className="mt-2 text-sm text-charcoal/70">{item.description}</p>
+            </div>
           </div>
         ))}
       </div>

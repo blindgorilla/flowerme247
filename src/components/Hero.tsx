@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useLocale } from "@/lib/locale-context";
 import { OliveBranch } from "./OliveBranch";
 
@@ -17,6 +18,14 @@ export function Hero() {
       <p className="mx-auto mt-5 max-w-xl text-balance text-lg text-charcoal/70">
         {t.hero.subheadline}
       </p>
+      <Image
+        src="/images/machine.png"
+        alt={t.hero.machineAlt}
+        width={1122}
+        height={1402}
+        priority
+        className="mx-auto mt-8 h-56 w-auto rounded-3xl object-cover shadow-sm sm:h-72"
+      />
       <OliveBranch className="mx-auto mt-8 h-5 w-28 text-olive" />
       <a
         href="#waitlist"

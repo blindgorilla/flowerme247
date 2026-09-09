@@ -9,6 +9,7 @@ export interface Dictionary {
     headline: string;
     subheadline: string;
     cta: string;
+    machineAlt: string;
   };
   bouquets: {
     eyebrow: string;
@@ -56,6 +57,7 @@ export const dictionary: Record<Locale, Dictionary> = {
       subheadline:
         "FlowerMe is Cyprus' first 24/7 fresh flower vending machine. No shop hours, no waiting around — just walk up, choose, and go.",
       cta: "Join the waitlist",
+      machineAlt: "The FlowerMe fresh flower vending machine",
     },
     bouquets: {
       eyebrow: "A preview",
@@ -120,6 +122,7 @@ export const dictionary: Record<Locale, Dictionary> = {
       subheadline:
         "Το FlowerMe είναι το πρώτο μηχάνημα φρέσκων λουλουδιών 24/7 στην Κύπρο. Χωρίς ωράριο, χωρίς αναμονή — απλά πλησιάζετε, διαλέγετε και φεύγετε.",
       cta: "Εγγραφή στη λίστα αναμονής",
+      machineAlt: "Το μηχάνημα φρέσκων λουλουδιών FlowerMe",
     },
     bouquets: {
       eyebrow: "Μια πρόγευση",
